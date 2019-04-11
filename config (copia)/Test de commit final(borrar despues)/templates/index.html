@@ -1,0 +1,32 @@
+<html>
+	<head>
+	<title>Libreria</title>
+
+	<meta charset="utf-8">
+	</head>
+
+
+	<body>
+		<h1>Libreria</h1>
+
+		<div>
+
+			{% for x in todos_los_prestamos %}
+
+			<form method="POST" action="{% url 'cualquiera' socio_id=x.socioId.id  %}">
+					{% csrf_token %}
+
+					<input type="submit" value="{{ x.socioId }}">
+					<!-- boton -->
+
+			</form>
+
+		 		<p> {{ x.libroId }} - {{ x.socioId }} - {{ x.fechaDevolucion }}</p>
+				
+
+			{% endfor %}
+
+		</div>
+
+	</body>
+</html>
